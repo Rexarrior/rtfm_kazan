@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+message Point
+{
+    double Latitude = 1;
+    double Longitude = 2;
+    
+}
+
+message SignalPoint
+{
+    double Latitude = 1;
+    double Longitude = 2;
+    double Realiability = 3;
+    double Signal = 4;
+}
+
+
+message AddMessageRequest
+{
+    double Latitude = 1; 
+    double Longitude = 2;
+    double Signal = 3; 
+    string OperatorName = 4;
+    int64 UserId = 5; 
+    int64 Time = 6; 
+}
+
+
+message SignalMapRequest
+{
+    repeated Point BorderPoints = 1; 
+    string OperatorName = 2;
+}
+
+
+message SignalMapResponse
+{
+    repeated SignalPoint Points = 1;
+
+}
+
+
+message ScoreRequest
+{
+    int64 user_id = 1; 
+}
+
+
+message ScoreResponse
+{
+    double Score = 2; 
+}

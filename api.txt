@@ -1,0 +1,6 @@
+1) post  ip.address/api/add_measure  request:AddMeasureRequest  response:no_model
+Описание: метод для отправки результатов измерения на сервер. Может быть анонимным (user_id=0) и не анонимным. Не требует авторизации. 
+2) post  ip.address/api/signal_map  request:SignalMapRequest  response:SignalMapResponse
+Описание: метод для получения карты покрытия в заданной области. Карта апроксимируется с каким-то шагом, в точках, далеких от точек измерения, имеет параметр reliability близким к 0. 
+3) post  ip.address/api/score  request:ScoreRequest  response:ScoreResponse
+Описание: метод для получения текущего счета бонусов. Бонусы начисляются за каждое измерение (add_measure с указанным user_id), в зависимости от точки измерения. 
