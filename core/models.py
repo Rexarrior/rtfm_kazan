@@ -16,12 +16,12 @@ class Measure(models.Model):
 
 
 class Operator(models.Model):
-    name = models.CharField()
+    name = models.CharField(max_length=50)
     operator_id = models.AutoField(primary_key=True)
 
 
 class Setting(models.Model):
-    name = models.CharField(unique=True, primary_key=True)
+    name = models.CharField(unique=True, primary_key=True, max_length=100)
     value = models.FloatField()
 
 
