@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x10\x61pi_models.proto\",\n\x05Point\x12\x10\n\x08Latitude\x18\x01 \x01(\x01\x12\x11\n\tLongitude\x18\x02 \x01(\x01\"X\n\x0bSignalPoint\x12\x10\n\x08Latitude\x18\x01 \x01(\x01\x12\x11\n\tLongitude\x18\x02 \x01(\x01\x12\x14\n\x0cRealiability\x18\x03 \x01(\x01\x12\x0e\n\x06Signal\x18\x04 \x01(\x01\"|\n\x11\x41\x64\x64MessageRequest\x12\x10\n\x08Latitude\x18\x01 \x01(\x01\x12\x11\n\tLongitude\x18\x02 \x01(\x01\x12\x0e\n\x06Signal\x18\x03 \x01(\x01\x12\x14\n\x0cOperatorName\x18\x04 \x01(\t\x12\x0e\n\x06UserId\x18\x05 \x01(\x03\x12\x0c\n\x04Time\x18\x06 \x01(\x03\"F\n\x10SignalMapRequest\x12\x1c\n\x0c\x42orderPoints\x18\x01 \x03(\x0b\x32\x06.Point\x12\x14\n\x0cOperatorName\x18\x02 \x01(\t\"1\n\x11SignalMapResponse\x12\x1c\n\x06Points\x18\x01 \x03(\x0b\x32\x0c.SignalPoint\"\x1f\n\x0cScoreRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\x03\"\x1e\n\rScoreResponse\x12\r\n\x05Score\x18\x02 \x01(\x01\x62\x06proto3')
+  serialized_pb=_b('\n\x10\x61pi_models.proto\",\n\x05Point\x12\x10\n\x08Latitude\x18\x01 \x01(\x01\x12\x11\n\tLongitude\x18\x02 \x01(\x01\"X\n\x0bSignalPoint\x12\x10\n\x08Latitude\x18\x01 \x01(\x01\x12\x11\n\tLongitude\x18\x02 \x01(\x01\x12\x14\n\x0cRealiability\x18\x03 \x01(\x01\x12\x0e\n\x06Signal\x18\x04 \x01(\x01\"|\n\x11\x41\x64\x64MeasureRequest\x12\x10\n\x08Latitude\x18\x01 \x01(\x01\x12\x11\n\tLongitude\x18\x02 \x01(\x01\x12\x0e\n\x06Signal\x18\x03 \x01(\x01\x12\x14\n\x0cOperatorName\x18\x04 \x01(\t\x12\x0e\n\x06UserId\x18\x05 \x01(\x03\x12\x0c\n\x04Time\x18\x06 \x01(\x03\"F\n\x10SignalMapRequest\x12\x1c\n\x0c\x42orderPoints\x18\x01 \x03(\x0b\x32\x06.Point\x12\x14\n\x0cOperatorName\x18\x02 \x01(\t\"1\n\x11SignalMapResponse\x12\x1c\n\x06Points\x18\x01 \x03(\x0b\x32\x0c.SignalPoint\"\x1f\n\x0cScoreRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\x03\"\x1e\n\rScoreResponse\x12\r\n\x05Score\x18\x02 \x01(\x01\x62\x06proto3')
 )
 
 
@@ -116,50 +116,50 @@ _SIGNALPOINT = _descriptor.Descriptor(
 )
 
 
-_ADDMESSAGEREQUEST = _descriptor.Descriptor(
-  name='AddMessageRequest',
-  full_name='AddMessageRequest',
+_ADDMEASUREREQUEST = _descriptor.Descriptor(
+  name='AddMeasureRequest',
+  full_name='AddMeasureRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Latitude', full_name='AddMessageRequest.Latitude', index=0,
+      name='Latitude', full_name='AddMeasureRequest.Latitude', index=0,
       number=1, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='Longitude', full_name='AddMessageRequest.Longitude', index=1,
+      name='Longitude', full_name='AddMeasureRequest.Longitude', index=1,
       number=2, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='Signal', full_name='AddMessageRequest.Signal', index=2,
+      name='Signal', full_name='AddMeasureRequest.Signal', index=2,
       number=3, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='OperatorName', full_name='AddMessageRequest.OperatorName', index=3,
+      name='OperatorName', full_name='AddMeasureRequest.OperatorName', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='UserId', full_name='AddMessageRequest.UserId', index=4,
+      name='UserId', full_name='AddMeasureRequest.UserId', index=4,
       number=5, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='Time', full_name='AddMessageRequest.Time', index=5,
+      name='Time', full_name='AddMeasureRequest.Time', index=5,
       number=6, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -316,7 +316,7 @@ _SIGNALMAPREQUEST.fields_by_name['BorderPoints'].message_type = _POINT
 _SIGNALMAPRESPONSE.fields_by_name['Points'].message_type = _SIGNALPOINT
 DESCRIPTOR.message_types_by_name['Point'] = _POINT
 DESCRIPTOR.message_types_by_name['SignalPoint'] = _SIGNALPOINT
-DESCRIPTOR.message_types_by_name['AddMessageRequest'] = _ADDMESSAGEREQUEST
+DESCRIPTOR.message_types_by_name['AddMeasureRequest'] = _ADDMEASUREREQUEST
 DESCRIPTOR.message_types_by_name['SignalMapRequest'] = _SIGNALMAPREQUEST
 DESCRIPTOR.message_types_by_name['SignalMapResponse'] = _SIGNALMAPRESPONSE
 DESCRIPTOR.message_types_by_name['ScoreRequest'] = _SCOREREQUEST
@@ -337,12 +337,12 @@ SignalPoint = _reflection.GeneratedProtocolMessageType('SignalPoint', (_message.
   })
 _sym_db.RegisterMessage(SignalPoint)
 
-AddMessageRequest = _reflection.GeneratedProtocolMessageType('AddMessageRequest', (_message.Message,), {
-  'DESCRIPTOR' : _ADDMESSAGEREQUEST,
+AddMeasureRequest = _reflection.GeneratedProtocolMessageType('AddMeasureRequest', (_message.Message,), {
+  'DESCRIPTOR' : _ADDMEASUREREQUEST,
   '__module__' : 'api_models_pb2'
-  # @@protoc_insertion_point(class_scope:AddMessageRequest)
+  # @@protoc_insertion_point(class_scope:AddMeasureRequest)
   })
-_sym_db.RegisterMessage(AddMessageRequest)
+_sym_db.RegisterMessage(AddMeasureRequest)
 
 SignalMapRequest = _reflection.GeneratedProtocolMessageType('SignalMapRequest', (_message.Message,), {
   'DESCRIPTOR' : _SIGNALMAPREQUEST,

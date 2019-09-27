@@ -16,7 +16,7 @@ message SignalPoint
 }
 
 
-message AddMessageRequest
+message AddMeasureRequest
 {
     double Latitude = 1; 
     double Longitude = 2;
