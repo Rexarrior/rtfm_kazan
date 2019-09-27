@@ -51,5 +51,5 @@ def get_score(request):
         return HttpResponseBadRequest()
 
 
-def signal_map(request):
+# def signal_map(request):
     
