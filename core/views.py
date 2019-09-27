@@ -19,12 +19,13 @@ def add_measure(request):
     try:
         add_req = api_proto.AddMeasureRequest()
         add_req = add_req.FromString(request.body)
-        operator_id = Operator.objects.get(operator_name=add_req.OperatorName).operator_id
         m_time = datetime.fromtimestamp(add_req.Time)
-        measure = Measure(user_id=add_req.UserId,
+        user = CustomUser.objects.get(user_id=add_req.UserId)
+        operator = Operator.objects.get(operator_name=add_req.OperatorName)
+        measure = Measure(user_id=user,
                           latitude=add_req.Latitude,
                           longitude=add_req.Longitude,
-                          operator_id=operator_id,
+                          operator_id=operator,
                           signal=add_req.Signal,
                           time=m_time
                           )

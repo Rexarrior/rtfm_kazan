@@ -31,7 +31,7 @@ class Coverage(models.Model):
     reliability = models.FloatField()
 
 
-class Name(models.Model):
+class CoveragePoints(models.Model):
     latitude = models.FloatField()
     longitude = models.FloatField()
     coverage_id = models.ForeignKey("Coverage", on_delete=models.CASCADE)
