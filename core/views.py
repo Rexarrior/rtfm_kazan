@@ -21,7 +21,7 @@ def add_measure(request):
         add_req = add_req.FromString(request.body)
         m_time = datetime.fromtimestamp(add_req.Time)
         user = CustomUser.objects.get(user_id=add_req.UserId)
-        operator = Operator.objects.get(operator_name=add_req.OperatorName)
+        operator = Operator.objects.get(name=add_req.OperatorName)
         measure = Measure(user_id=user,
                           latitude=add_req.Latitude,
                           longitude=add_req.Longitude,
