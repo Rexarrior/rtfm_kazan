@@ -16,6 +16,7 @@ from django.views.decorators.csrf import csrf_exempt
 ZERO_USER_ID = 0
 MAP_RELIABILITY_RANGE = 5; 
 
+
 @csrf_exempt
 def add_measure(request):
     try:
@@ -24,12 +25,14 @@ def add_measure(request):
         m_time = datetime.fromtimestamp(add_req.Time)
         user = CustomUser.objects.get(user_id=add_req.UserId)
         operator = Operator.objects.get(name=add_req.OperatorName)
+        network = Network.objects.get(name=add_req.NetworkName)
         measure = Measure(user_id=user,
                           latitude=add_req.Latitude,
                           longitude=add_req.Longitude,
                           operator_id=operator,
                           signal=add_req.Signal,
-                          time=m_time
+                          time=m_time,
+                          network_id=network
                           )
         measure.save()
         if (measure.user_id.user_id != ZERO_USER_ID):
@@ -66,8 +69,10 @@ def signal_map(request):
 def signal_map_json(request):
     map_req = json.loads(request.body)
     operator = Operator.objects.get(name=map_req['OperatorName'])
+    network = Network.objects.get(name=map_req['NetworkName'])
+
     left_p = map_req['BorderPoints'][0]
-    right_p = map_req['BorderPoints'][0]
-    map = get_signal_map(operator, left_p, right_p)
+    right_p = map_req['BorderPoints'][1]
+    map = get_signal_map(operator, network, left_p, right_p)
     jsoned_map = json.dumps(map)
     return HttpResponse(jsoned_map)

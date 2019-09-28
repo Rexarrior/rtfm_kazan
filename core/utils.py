@@ -12,7 +12,7 @@ def compute_score_for_measure(measure):
     return 1
 
 
-def get_signal_map(operator, left_down_p, right_up_p,
+def get_signal_map(operator, network, left_down_p, right_up_p,
                    resolution=100, reliability_range=ONE_MINUTE):
     left_down_p[X_N] = float(left_down_p[X_N])
     left_down_p[Y_N] = float(left_down_p[Y_N])
@@ -21,17 +21,18 @@ def get_signal_map(operator, left_down_p, right_up_p,
 
     map = get_zeros_signal_map(left_down_p, right_up_p, resolution)
     coverages = get_coverages_intersected_with_rect(operator,
+                                                    network,
                                                     left_down_p,
                                                     right_up_p
                                                     )
     apply_coverages_on_map(map, coverages)
-    measures = get_measures_in_rectangle(operator, left_down_p, right_up_p)
+    measures = get_measures_in_rectangle(operator, network, left_down_p, right_up_p)
     apply_measures_on_map(map, measures, reliability_range)
     return map
     
 
 
-def get_measures_in_rectangle(operator, left_down_p, right_up_p):
+def get_measures_in_rectangle(operator, network, left_down_p, right_up_p):
     return Measure.\
                 objects.\
                 filter(
@@ -39,11 +40,12 @@ def get_measures_in_rectangle(operator, left_down_p, right_up_p):
                        latitude__lte=right_up_p[X_N],
                        longitude_gte=left_down_p[Y_N],
                        longitude__lte=right_up_p[Y_N],
-                       operator_id=operator
+                       operator_id=operator,
+                       network_id=network
                        )
 
 
-def get_coverages_intersected_with_rect(operator, left_down_p, right_up_p):
+def get_coverages_intersected_with_rect(operator, network, left_down_p, right_up_p):
     return Coverage.\
             objects.\
             filter(
@@ -51,7 +53,8 @@ def get_coverages_intersected_with_rect(operator, left_down_p, right_up_p):
                    center_latitude__lte=right_up_p[X_N],
                    center_longitude__gte=left_down_p[Y_N],
                    center_longitude__lte=right_up_p[Y_N],
-                   operator_id=operator
+                   operator_id=operator,
+                   network=network
                    )
 
 

@@ -24,6 +24,8 @@ message AddMeasureRequest
     string OperatorName = 4;
     int64 UserId = 5; 
     int64 Time = 6; 
+    string NetworkName = 7;
+
 }
 
 
@@ -31,6 +33,7 @@ message SignalMapRequest
 {
     repeated Point BorderPoints = 1; 
     string OperatorName = 2;
+    string NetworkName = 3;
 }
 
 

@@ -7,12 +7,13 @@ class CustomUser(models.Model):
 
 class Measure(models.Model):
     user_id = models.ForeignKey('CustomUser',
-                              on_delete=models.CASCADE)
+                                on_delete=models.CASCADE)
     latitude = models.FloatField()
     longitude = models.FloatField()
     operator_id = models.ForeignKey('Operator', on_delete=models.CASCADE)
     signal = models.FloatField()
     time = models.DateField()
+    network_id = models.ForeignKey('Network', on_delete=models.CASCADE)
 
 
 class Operator(models.Model):
@@ -31,7 +32,8 @@ class Coverage(models.Model):
     reliability = models.FloatField()
     center_latitude = models.FloatField()
     center_longitude = models.FloatField()
-    signal =  models.FloatField()
+    signal = models.FloatField()
+    network_id = models.ForeignKey('Network', on_delete=models.CASCADE)
 
 
 class CoveragePoints(models.Model):
@@ -43,3 +45,8 @@ class CoveragePoints(models.Model):
 class Scores(models.Model):
     user_id = models.ForeignKey('CustomUser', on_delete=models.CASCADE)
     score = models.FloatField()
+
+
+class Network(models.Model):
+    network_id = models.AutoField(primary_key=True)
+    network_name = models.CharField(max_length=50)
