@@ -45,6 +45,7 @@ def add_measure(request):
         return HttpResponseBadRequest()
 
 
+@csrf_exempt
 def get_score(request):
     try:
         proto_req = api_proto.ScoreRequest()
@@ -58,6 +59,7 @@ def get_score(request):
         return HttpResponseBadRequest()
 
 
+@csrf_exempt
 def signal_map(request):
     proto_req = api_proto.SignalMapRequest()
     proto_req = proto_req.FromString(request.body)
@@ -66,6 +68,7 @@ def signal_map(request):
     return HttpResponseNotFound()
     
 
+@csrf_exempt
 def signal_map_json(request):
     map_req = json.loads(request.body)
     operator = Operator.objects.get(name=map_req['OperatorName'])
