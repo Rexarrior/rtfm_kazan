@@ -22,6 +22,7 @@ def add_measure(request):
     try:
         add_req = api_proto.AddMeasureRequest()
         add_req = add_req.FromString(request.body)
+        print(f"operator {add_req.OperatorName}")
         m_time = datetime.fromtimestamp(add_req.Time)
         user = CustomUser.objects.get(user_id=add_req.UserId)
         operator = Operator.objects.get(name=add_req.OperatorName)
