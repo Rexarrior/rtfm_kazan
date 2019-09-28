@@ -34,7 +34,7 @@ def get_signal_map(operator, network, left_down_p, right_up_p,
     measures = get_measures_in_rectangle(operator, network, left_down_p, right_up_p)
     n = len(measures)
     print(f'measures count = {n}; {left_down_p[X_N]}; {left_down_p[Y_N]} - {right_up_p[X_N]} ; {right_up_p[Y_N]}')
-    apply_measures_on_map(map, measures, )
+    apply_measures_on_map(map, measures, relibility_range)
     return map
     
 
