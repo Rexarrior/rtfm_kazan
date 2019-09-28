@@ -38,7 +38,7 @@ def get_measures_in_rectangle(operator, network, left_down_p, right_up_p):
                 filter(
                        latitude__gte=left_down_p[X_N],
                        latitude__lte=right_up_p[X_N],
-                       longitude_gte=left_down_p[Y_N],
+                       longitude__gte=left_down_p[Y_N],
                        longitude__lte=right_up_p[Y_N],
                        operator_id=operator,
                        network_id=network
