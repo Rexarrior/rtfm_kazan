@@ -10,9 +10,11 @@ import json
 import core.proto_models.api_models_pb2 as api_proto
 from datetime import datetime
 from core.utils import *
+from django.views.decorators.csrf import csrf_exempt
 
 
 ZERO_USER_ID = 0
+
 
 @csrf_exempt
 def add_measure(request):
