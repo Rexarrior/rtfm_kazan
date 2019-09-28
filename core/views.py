@@ -25,7 +25,7 @@ def add_measure(request):
         m_time = datetime.fromtimestamp(add_req.Time)
         user = CustomUser.objects.get(user_id=add_req.UserId)
         operator = Operator.objects.get(name=add_req.OperatorName)
-        network = Network.objects.get(name=add_req.NetworkName)
+        network = Network.objects.get(network_name=add_req.NetworkName)
         measure = Measure(user_id=user,
                           latitude=add_req.Latitude,
                           longitude=add_req.Longitude,
