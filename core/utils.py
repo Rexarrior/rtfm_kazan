@@ -29,6 +29,8 @@ def get_signal_map(operator, network, left_down_p, right_up_p,
     print(f'coverages count: {n}')
     apply_coverages_on_map(map, coverages)
     measures = get_measures_in_rectangle(operator, network, left_down_p, right_up_p)
+    n = len(measures)
+    print(f'measures count = {n}; {left_down_p[X_N]}; {left_down_p[Y_N]} - {right_up_p[X_N]} ; {right_up_p[Y_N]}')
     apply_measures_on_map(map, measures, TEN_MINUTE)
     return map
     
@@ -100,6 +102,8 @@ def apply_coverages_on_map(map, coverages):
 
 def apply_measures_on_map(map, measures, reliability_range):
     for measure in measures:
+        map_len = len(map)
+        print(f'maplen = {map_len}')
         for map_point in map:
             dist = dist_between_points(map_point['Points'],
                                        [measure.latitude,
