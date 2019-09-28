@@ -110,7 +110,6 @@ def apply_measures_on_map(map, measures, reliability_range):
                                         measure.longitude
                                         ]
                                        )
-            print(f'dist {dist}')
             reliability = 1 - dist / reliability_range
             if reliability > map_point['Reliability']:
                 map_point['Signal'] = measure.signal
