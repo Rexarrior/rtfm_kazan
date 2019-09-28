@@ -74,6 +74,7 @@ def get_zeros_signal_map(left_down_p, right_up_p, resolution):
             map.append({'Points': [x, y],
                         'Reliability': 0,
                         'Signal': 0})
+        y = left_down_p[Y_N]
         x += x_step
     return map
 
@@ -115,9 +116,6 @@ def apply_measures_on_map(map, measures, reliability_range):
                 map_point['Signal'] = measure.signal
                 map_point['Reliability'] = reliability
                 # todo: update by time 
-
-
-                    
 
 
 def is_point_inside(map_point, left_p, right_p):
