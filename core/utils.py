@@ -29,7 +29,7 @@ def get_signal_map(operator, network, left_down_p, right_up_p,
     print(f'coverages count: {n}')
     apply_coverages_on_map(map, coverages)
     measures = get_measures_in_rectangle(operator, network, left_down_p, right_up_p)
-    apply_measures_on_map(map, measures, reliability_range)
+    apply_measures_on_map(map, measures, TEN_MINUTE)
     return map
     
 
@@ -84,7 +84,7 @@ def apply_coverages_on_map(map, coverages):
                     order_by(X_N, Y_N)
                 
         n = len(points)
-        print('coverage points: {n}')
+        print(f'coverage points: {n}')
         if (n != 2):
             continue
         left_p = points[0]
