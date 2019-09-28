@@ -5,7 +5,7 @@ import math
 X_N = 'latitude'
 Y_N = 'longitude'
 
-ONE_MINUTE = 0.005
+TEN_MINUTE = 0.05
 
 
 def compute_score_for_measure(measure):
@@ -13,7 +13,7 @@ def compute_score_for_measure(measure):
 
 
 def get_signal_map(operator, network, left_down_p, right_up_p,
-                   resolution=100, reliability_range=ONE_MINUTE):
+                   resolution=500, reliability_range=TEN_MINUTE):
     left_down_p[X_N] = float(left_down_p[X_N])
     left_down_p[Y_N] = float(left_down_p[Y_N])
     right_up_p[Y_N] = float(right_up_p[Y_N])
@@ -25,6 +25,8 @@ def get_signal_map(operator, network, left_down_p, right_up_p,
                                                     left_down_p,
                                                     right_up_p
                                                     )
+    n = len(coverages)
+    print(f'coverages count: {n}')
     apply_coverages_on_map(map, coverages)
     measures = get_measures_in_rectangle(operator, network, left_down_p, right_up_p)
     apply_measures_on_map(map, measures, reliability_range)
