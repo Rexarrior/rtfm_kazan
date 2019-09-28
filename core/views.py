@@ -30,7 +30,7 @@ def add_measure(request):
                           time=m_time
                           )
         measure.save()
-        if (measure.user_id != ZERO_USER_ID):
+        if (measure.user_id.user_id != ZERO_USER_ID):
             new_score = compute_score_for_measure(measure)
             score = Scores.objects.get(user_id=measure.user_id)
             score.score += score
@@ -44,7 +44,8 @@ def get_score(request):
     try:
         proto_req = api_proto.ScoreRequest()
         proto_req = proto_req.FromString(request.body)
-        score = Scores.objects.get(user_id=proto_req.UserId)
+        user = CustomUser.objects.get(user_id=proto_req.UserId)
+        score = Scores.objects.get(user_id=user)
         res = api_proto.ScoreResponse()
         res.Score = score.score
         return HttpResponse(res.SerializeToString())
@@ -52,5 +53,6 @@ def get_score(request):
         return HttpResponseBadRequest()
 
 
-# def signal_map(request):
+def signal_map(request):
+    return HttpResponseNotFound()
     
