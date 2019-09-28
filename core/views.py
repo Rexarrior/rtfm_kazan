@@ -14,7 +14,7 @@ from core.utils import *
 
 ZERO_USER_ID = 0
 
-
+@csrf_exempt
 def add_measure(request):
     try:
         add_req = api_proto.AddMeasureRequest()
