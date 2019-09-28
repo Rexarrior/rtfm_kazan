@@ -29,6 +29,9 @@ class Coverage(models.Model):
     coverage_id = models.AutoField(primary_key=True)
     operator_id = models.ForeignKey('Operator', on_delete=models.CASCADE)
     reliability = models.FloatField()
+    center_latitude = models.FloatField()
+    center_longitude = models.FloatField()
+    signal =  models.FloatField()
 
 
 class CoveragePoints(models.Model):

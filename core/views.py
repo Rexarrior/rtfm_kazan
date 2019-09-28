@@ -14,7 +14,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 ZERO_USER_ID = 0
-
+MAP_RELIABILITY_RANGE = 5; 
 
 @csrf_exempt
 def add_measure(request):
@@ -56,5 +56,18 @@ def get_score(request):
 
 
 def signal_map(request):
+    proto_req = api_proto.SignalMapRequest()
+    proto_req = proto_req.FromString(request.body)
+    operator = Operator.objects.get(name=proto_req.OperatorName)
+    # todo
     return HttpResponseNotFound()
     
+
+def signal_map_json(request):
+    map_req = json.loads(request.body)
+    operator = Operator.objects.get(name=map_req['OperatorName'])
+    left_p = map_req['BorderPoints'][0]
+    right_p = map_req['BorderPoints'][0]
+    map = get_signal_map(operator, left_p, right_p)
+    jsoned_map = json.dumps(map)
+    return HttpResponse(jsoned_map)
