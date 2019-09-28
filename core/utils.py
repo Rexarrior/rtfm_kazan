@@ -54,7 +54,7 @@ def get_coverages_intersected_with_rect(operator, network, left_down_p, right_up
                    center_longitude__gte=left_down_p[Y_N],
                    center_longitude__lte=right_up_p[Y_N],
                    operator_id=operator,
-                   network=network
+                   network_id=network
                    )
 
 
