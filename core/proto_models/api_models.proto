@@ -11,7 +11,7 @@ message SignalPoint
 {
     double Latitude = 1;
     double Longitude = 2;
-    double Realiability = 3;
+    double Reliability = 3;
     double Signal = 4;
 }
 

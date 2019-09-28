@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x10\x61pi_models.proto\",\n\x05Point\x12\x10\n\x08Latitude\x18\x01 \x01(\x01\x12\x11\n\tLongitude\x18\x02 \x01(\x01\"X\n\x0bSignalPoint\x12\x10\n\x08Latitude\x18\x01 \x01(\x01\x12\x11\n\tLongitude\x18\x02 \x01(\x01\x12\x14\n\x0cRealiability\x18\x03 \x01(\x01\x12\x0e\n\x06Signal\x18\x04 \x01(\x01\"\x91\x01\n\x11\x41\x64\x64MeasureRequest\x12\x10\n\x08Latitude\x18\x01 \x01(\x01\x12\x11\n\tLongitude\x18\x02 \x01(\x01\x12\x0e\n\x06Signal\x18\x03 \x01(\x01\x12\x14\n\x0cOperatorName\x18\x04 \x01(\t\x12\x0e\n\x06UserId\x18\x05 \x01(\x03\x12\x0c\n\x04Time\x18\x06 \x01(\x03\x12\x13\n\x0bNetworkName\x18\x07 \x01(\t\"[\n\x10SignalMapRequest\x12\x1c\n\x0c\x42orderPoints\x18\x01 \x03(\x0b\x32\x06.Point\x12\x14\n\x0cOperatorName\x18\x02 \x01(\t\x12\x13\n\x0bNetworkName\x18\x03 \x01(\t\"1\n\x11SignalMapResponse\x12\x1c\n\x06Points\x18\x01 \x03(\x0b\x32\x0c.SignalPoint\"\x1f\n\x0cScoreRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\x03\"\x1e\n\rScoreResponse\x12\r\n\x05Score\x18\x02 \x01(\x01\x62\x06proto3')
+  serialized_pb=_b('\n\x10\x61pi_models.proto\",\n\x05Point\x12\x10\n\x08Latitude\x18\x01 \x01(\x01\x12\x11\n\tLongitude\x18\x02 \x01(\x01\"W\n\x0bSignalPoint\x12\x10\n\x08Latitude\x18\x01 \x01(\x01\x12\x11\n\tLongitude\x18\x02 \x01(\x01\x12\x13\n\x0bReliability\x18\x03 \x01(\x01\x12\x0e\n\x06Signal\x18\x04 \x01(\x01\"\x91\x01\n\x11\x41\x64\x64MeasureRequest\x12\x10\n\x08Latitude\x18\x01 \x01(\x01\x12\x11\n\tLongitude\x18\x02 \x01(\x01\x12\x0e\n\x06Signal\x18\x03 \x01(\x01\x12\x14\n\x0cOperatorName\x18\x04 \x01(\t\x12\x0e\n\x06UserId\x18\x05 \x01(\x03\x12\x0c\n\x04Time\x18\x06 \x01(\x03\x12\x13\n\x0bNetworkName\x18\x07 \x01(\t\"[\n\x10SignalMapRequest\x12\x1c\n\x0c\x42orderPoints\x18\x01 \x03(\x0b\x32\x06.Point\x12\x14\n\x0cOperatorName\x18\x02 \x01(\t\x12\x13\n\x0bNetworkName\x18\x03 \x01(\t\"1\n\x11SignalMapResponse\x12\x1c\n\x06Points\x18\x01 \x03(\x0b\x32\x0c.SignalPoint\"\x1f\n\x0cScoreRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\x03\"\x1e\n\rScoreResponse\x12\r\n\x05Score\x18\x02 \x01(\x01\x62\x06proto3')
 )
 
 
@@ -86,7 +86,7 @@ _SIGNALPOINT = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='Realiability', full_name='SignalPoint.Realiability', index=2,
+      name='Reliability', full_name='SignalPoint.Reliability', index=2,
       number=3, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
@@ -112,7 +112,7 @@ _SIGNALPOINT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=66,
-  serialized_end=154,
+  serialized_end=153,
 )
 
 
@@ -184,8 +184,8 @@ _ADDMEASUREREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=157,
-  serialized_end=302,
+  serialized_start=156,
+  serialized_end=301,
 )
 
 
@@ -229,8 +229,8 @@ _SIGNALMAPREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=304,
-  serialized_end=395,
+  serialized_start=303,
+  serialized_end=394,
 )
 
 
@@ -260,8 +260,8 @@ _SIGNALMAPRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=397,
-  serialized_end=446,
+  serialized_start=396,
+  serialized_end=445,
 )
 
 
@@ -291,8 +291,8 @@ _SCOREREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=448,
-  serialized_end=479,
+  serialized_start=447,
+  serialized_end=478,
 )
 
 
@@ -322,8 +322,8 @@ _SCORERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=481,
-  serialized_end=511,
+  serialized_start=480,
+  serialized_end=510,
 )
 
 _SIGNALMAPREQUEST.fields_by_name['BorderPoints'].message_type = _POINT

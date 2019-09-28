@@ -23,5 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/add_measure', add_measure),
     path('api/signal_map', signal_map_json),
+    path('api/signal_map_proto', signal_map_proto),
     path('api/get_score', get_score),
 ]

@@ -60,13 +60,27 @@ def get_score(request):
 
 
 @csrf_exempt
-def signal_map(request):
+def signal_map_proto(request):
     proto_req = api_proto.SignalMapRequest()
     proto_req = proto_req.FromString(request.body)
     operator = Operator.objects.get(name=proto_req.OperatorName)
-    # todo
-    return HttpResponseNotFound()
-    
+    network = Network.objects.get(network_name=req.NetworkName)
+    left_p = {'latitude': proto_req.BorderPoints[0].Latitude,
+              'longitude': proto_req.BorderPoints[0].Longitude}
+    right_p = {'latitude': proto_req.BorderPoints[1].Latitude,
+              'longitude': proto_req.BorderPoints[1].Longitude}
+    map = get_signal_map(operator, network, left_p, right_p)
+    res = SignalMapResponse()
+    for point in map:
+        s_point = SignalPoint()
+        s_point.Latitude = point['Points'][0]
+        s_point.Longitude = point['Points'][1]
+        s_point.Reliability = point['Reliability']
+        s_point.Signal = point['Signal']
+        res.Points.append(s_point)
+    return HttpResponse(res.SerializeToString())
+
+
 
 @csrf_exempt
 def signal_map_json(request):
