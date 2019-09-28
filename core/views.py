@@ -73,7 +73,7 @@ def signal_map_json(request):
     print(request.body)
     map_req = json.loads(request.body)
     operator = Operator.objects.get(name=map_req['OperatorName'])
-    network = Network.objects.get(name=map_req['NetworkName'])
+    network = Network.objects.get(network_name=map_req['NetworkName'])
 
     left_p = map_req['BorderPoints'][0]
     right_p = map_req['BorderPoints'][1]
