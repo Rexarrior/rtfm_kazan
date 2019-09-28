@@ -70,6 +70,7 @@ def signal_map(request):
 
 @csrf_exempt
 def signal_map_json(request):
+    print(request.body)
     map_req = json.loads(request.body)
     operator = Operator.objects.get(name=map_req['OperatorName'])
     network = Network.objects.get(name=map_req['NetworkName'])
