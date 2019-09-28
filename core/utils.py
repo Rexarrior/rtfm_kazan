@@ -13,7 +13,7 @@ def compute_score_for_measure(measure):
 
 
 def get_signal_map(operator, network, left_down_p, right_up_p,
-                   resolution=500, reliability_range=TEN_MINUTE):
+                   resolution=500):
     left_down_p[X_N] = float(left_down_p[X_N])
     left_down_p[Y_N] = float(left_down_p[Y_N])
     right_up_p[Y_N] = float(right_up_p[Y_N])
@@ -106,6 +106,7 @@ def apply_measures_on_map(map, measures, reliability_range):
                                         measure.longitude
                                         ]
                                        )
+            print(f'dist {dist}')
             reliability = 1 - dist / reliability_range
             if reliability > map_point['Reliability']:
                 map_point['Signal'] = measure.signal
