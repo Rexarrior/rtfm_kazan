@@ -82,7 +82,9 @@ def apply_coverages_on_map(map, coverages):
                     objects.\
                     filter(coverage_id=cover).\
                     order_by(X_N, Y_N)
+                
         n = len(points)
+        print('coverage points: {n}')
         if (n != 2):
             continue
         left_p = points[0]
