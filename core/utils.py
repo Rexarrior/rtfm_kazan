@@ -13,12 +13,15 @@ def compute_score_for_measure(measure):
 
 
 def get_signal_map(operator, network, left_down_p, right_up_p,
-                   resolution=500):
+                   resolution=50):
     left_down_p[X_N] = float(left_down_p[X_N])
     left_down_p[Y_N] = float(left_down_p[Y_N])
     right_up_p[Y_N] = float(right_up_p[Y_N])
     right_up_p[X_N] = float(right_up_p[X_N])
-
+    relibility_range = math.max(
+        abs(left_down_p[X_N] - right_up_p[X_N]),
+        abs(left_down_p[Y_N] - right_up_p[Y_N])
+                                )
     map = get_zeros_signal_map(left_down_p, right_up_p, resolution)
     coverages = get_coverages_intersected_with_rect(operator,
                                                     network,
@@ -31,7 +34,7 @@ def get_signal_map(operator, network, left_down_p, right_up_p,
     measures = get_measures_in_rectangle(operator, network, left_down_p, right_up_p)
     n = len(measures)
     print(f'measures count = {n}; {left_down_p[X_N]}; {left_down_p[Y_N]} - {right_up_p[X_N]} ; {right_up_p[Y_N]}')
-    apply_measures_on_map(map, measures, TEN_MINUTE)
+    apply_measures_on_map(map, measures, )
     return map
     
 
