@@ -64,8 +64,9 @@ def get_score(request):
 def signal_map_proto(request):
     proto_req = api_proto.SignalMapRequest()
     proto_req = proto_req.FromString(request.body)
+    print(f"signal_map_proto op:{proto_req.OperatorName}; net:{proto_req.NetworkName}")
     operator = Operator.objects.get(name=proto_req.OperatorName)
-    network = Network.objects.get(network_name=req.NetworkName)
+    network = Network.objects.get(network_name=proto_req.NetworkName)
     left_p = {'latitude': proto_req.BorderPoints[0].Latitude,
               'longitude': proto_req.BorderPoints[0].Longitude}
     right_p = {'latitude': proto_req.BorderPoints[1].Latitude,
