@@ -13,7 +13,7 @@ def compute_score_for_measure(measure):
 
 
 def get_signal_map(operator, network, left_down_p, right_up_p,
-                   resolution=10):
+                   resolution=100):
     left_down_p[X_N] = float(left_down_p[X_N])
     left_down_p[Y_N] = float(left_down_p[Y_N])
     right_up_p[Y_N] = float(right_up_p[Y_N])
