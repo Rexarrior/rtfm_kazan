@@ -124,3 +124,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+
+# load resourses
+with open('resources//clear_station_list.json', 'rt') as f:
+    YANDEX_ID_MAP = json.loads(f.read())

@@ -11,7 +11,7 @@ import core.proto_models.api_models_pb2 as api_proto
 from datetime import datetime
 from core.utils import *
 from django.views.decorators.csrf import csrf_exempt
-
+from rtfm_server.settings import YANDEX_ID_MAP
 
 ZERO_USER_ID = 0
 MAP_RELIABILITY_RANGE = 5; 
@@ -95,3 +95,13 @@ def signal_map_json(request):
     map = get_signal_map(operator, network, left_p, right_p)
     jsoned_map = json.dumps(map)
     return HttpResponse(jsoned_map)
+
+
+@csrf_exempt
+def region_id_by_name(request):
+    args = request.GET
+    name = args['name']
+    if (name in YANDEX_ID_MAP):
+        return HttpResponse(YANDEX_ID_MAP[name])
+    else:
+        return HttpResponseNotFound()

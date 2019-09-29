@@ -25,4 +25,5 @@ urlpatterns = [
     path('api/signal_map', signal_map_json),
     path('api/signal_map_proto', signal_map_proto),
     path('api/get_score', get_score),
+    path('api/region_id_by_name', region_id_by_name),
 ]

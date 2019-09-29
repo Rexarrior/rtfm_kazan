@@ -3,7 +3,9 @@
 2) post  ip.address/api/signal_map_proto  request:SignalMapRequest  response:SignalMapResponse
 Описание: метод для получения карты покрытия в заданной области. Карта апроксимируется с каким-то шагом, в точках, далеких от точек измерения, имеет параметр reliability близким к 0.
 В реквесте в BorderPoints требуется только 2 точки - нижняя левая и верхняя правая для участка, для которого возвращается карта покрытия. 
-2) post  ip.address/api/signal_map  request:SignalMapRequest(json)  response:SignalMapResponse(json)
+3) post  ip.address/api/signal_map  request:SignalMapRequest(json)  response:SignalMapResponse(json)
 Описание: метод для получения карты покрытия в заданной области. Карта апроксимируется с каким-то шагом, в точках, далеких от точек измерения, имеет параметр reliability близким к 0. 
-3) post  ip.address/api/score  request:ScoreRequest  response:ScoreResponse
+4) post  ip.address/api/score  request:ScoreRequest  response:ScoreResponse
 Описание: метод для получения текущего счета бонусов. Бонусы начисляются за каждое измерение (add_measure с указанным user_id), в зависимости от точки измерения. 
+5) get ip.address/api/region_id_by_name request: ?name=<name> response: yandex id of station or 404
+Описание: по имени города\станции получает его яндекс код
