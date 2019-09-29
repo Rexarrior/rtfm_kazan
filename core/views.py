@@ -74,7 +74,7 @@ def signal_map_proto(request):
     map = get_signal_map(operator, network, left_p, right_p)
     res = api_proto.SignalMapResponse()
     for point in map:
-        s_point = SignalPoint()
+        s_point = api_proto.SignalPoint()
         s_point.Latitude = point['Points'][0]
         s_point.Longitude = point['Points'][1]
         s_point.Reliability = point['Reliability']
