@@ -78,7 +78,7 @@ def signal_map_proto(request):
         s_point.Latitude = point['Points'][0]
         s_point.Longitude = point['Points'][1]
         s_point.Reliability = point['Reliability']
-        s_point.Signal = point['Signal']
+        s_point.Signal = float((point['Signal']))
         res.Points.append(s_point)
     return HttpResponse(res.SerializeToString())
 
