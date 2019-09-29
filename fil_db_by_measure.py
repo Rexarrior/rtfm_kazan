@@ -1,7 +1,13 @@
 from core.models import *
-from rtfm_server.settings import *
 import random
 from datetime import datetime
+
+import django
+import os
+import sys
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "rtfm_server.settings")
+django.setup()
+
 x1 = 50
 y1 = 30
 x2  = 60
