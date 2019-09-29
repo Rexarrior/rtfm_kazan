@@ -72,7 +72,7 @@ def signal_map_proto(request):
     right_p = {'latitude': proto_req.BorderPoints[1].Latitude,
               'longitude': proto_req.BorderPoints[1].Longitude}
     map = get_signal_map(operator, network, left_p, right_p)
-    res = SignalMapResponse()
+    res = api_proto.SignalMapResponse()
     for point in map:
         s_point = SignalPoint()
         s_point.Latitude = point['Points'][0]
